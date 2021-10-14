@@ -1,0 +1,188 @@
+
+import RPi.GPIO as gpio
+import time
+
+ENA_m1 12       
+ENB_m1 32       
+ENA_m2 33       
+ENB_m2 35
+
+IN_11  3    		
+IN_12  5    		
+IN_13  7    		
+IN_14  11   		
+
+IN_21  13    		
+IN_22  15    		
+IN_23  19   		
+IN_24  21  
+
+def init():    
+    gpio.setmode(gpio.BCM)
+    gpio.setup(IN_11, gpio.OUT)
+    gpio.setup(IN_12, gpio.OUT)
+    gpio.setup(IN_13, gpio.OUT)
+    gpio.setup(IN_14, gpio.OUT)
+    gpio.setup(IN_21, gpio.OUT)
+    gpio.setup(IN_22, gpio.OUT)
+    gpio.setup(IN_23, gpio.OUT)
+    gpio.setup(IN_24, gpio.OUT)
+
+    gpio.setup(ENA_m1, gpio.OUT)
+    gpio.setup(ENA_m2, gpio.OUT)
+    gpio.setup(ENA_m3, gpio.OUT)
+    gpio.setup(ENA_m4, gpio.OUT)
+
+def forward():
+    init()
+    gpio.output(IN_11, True)
+    gpio.output(IN_12, False)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_13, False)
+    gpio.output(IN_14, True)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_21, False)
+    gpio.output(IN_22, True)
+    gpio.output(ENA_m2, speed)
+
+    gpio.output(IN_23, True)
+    gpio.output(IN_24, False)
+    gpio.output(ENA_m2, speed)
+
+    
+def reverse():
+    init()
+    gpio.output(IN_11, False)
+    gpio.output(IN_12, True)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_13, True)
+    gpio.output(IN_14, False)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_21, True)
+    gpio.output(IN_22, False)
+    gpio.output(ENA_m2, speed)
+
+    gpio.output(IN_23, False)
+    gpio.output(IN_24, True)
+    gpio.output(ENA_m2, speed)
+
+
+def left_turn():
+    init()    
+    gpio.output(IN_11, True)
+    gpio.output(IN_12, False)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_13, False)
+    gpio.output(IN_14, True)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_21, True)
+    gpio.output(IN_22, False)
+    gpio.output(ENA_m2, speed)
+
+    gpio.output(IN_23, False)
+    gpio.output(IN_24, True)
+    gpio.output(ENA_m2, speed)
+
+def right_turn():
+    init()
+    gpio.output(IN_11, False)
+    gpio.output(IN_12, True)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_13, True)
+    gpio.output(IN_14, False)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_21, False)
+    gpio.output(IN_22, True)
+    gpio.output(ENA_m2, speed)
+
+    gpio.output(IN_23, True)
+    gpio.output(IN_24, False)
+    gpio.output(ENA_m2, speed)
+
+def ahead_right_turn():
+    init()
+    gpio.output(IN_11, True)
+    gpio.output(IN_12, False)
+    gpio.output(ENA_m1, speed/3)
+
+    gpio.output(IN_13, False)
+    gpio.output(IN_14, True)
+    gpio.output(ENA_m1, speed/3)
+
+    gpio.output(IN_21, False)
+    gpio.output(IN_22, True)
+    gpio.output(ENA_m2, speed)
+
+    gpio.output(IN_23, True)
+    gpio.output(IN_24, False)
+    gpio.output(ENA_m2, speed)
+
+def ahead_left_turn():
+    init()
+    gpio.output(IN_11, True)
+    gpio.output(IN_12, False)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_13, False)
+    gpio.output(IN_14, True)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_21, False)
+    gpio.output(IN_22, True)
+    gpio.output(ENA_m2, speed/3)
+
+    gpio.output(IN_23, True)
+    gpio.output(IN_24, False)
+    gpio.output(ENA_m2, speed/3)
+
+
+def back_right_turn():
+    init()
+    gpio.output(IN_11, False)
+    gpio.output(IN_12, True)
+    gpio.output(ENA_m1, speed/3)
+
+    gpio.output(IN_13, True)
+    gpio.output(IN_14, False)
+    gpio.output(ENA_m1, speed/3)
+
+    gpio.output(IN_21, True)
+    gpio.output(IN_22, False)
+    gpio.output(ENA_m2, speed)
+
+    gpio.output(IN_23, False)
+    gpio.output(IN_24, True)
+    gpio.output(ENA_m2, speed)
+
+def back_left_turn():
+    init()
+    gpio.output(IN_11, False)
+    gpio.output(IN_12, True)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_13, True)
+    gpio.output(IN_14, False)
+    gpio.output(ENA_m1, speed)
+
+    gpio.output(IN_21, True)
+    gpio.output(IN_22, False)
+    gpio.output(ENA_m2, speed/3)
+
+    gpio.output(IN_23, False)
+    gpio.output(IN_24, True)
+    gpio.output(ENA_m2, speed/3)
+
+
+
+
+
+
+ 		
