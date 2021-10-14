@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BCM)
 en1 = 7
 en2 = 12
 inp11 = 11
-inp12 = 12
+inp12 = 13
 inp21 = 16
 inp22 = 18
 
