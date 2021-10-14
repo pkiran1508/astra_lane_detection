@@ -75,12 +75,15 @@ def direction(x):
 
 
 while True:
+    print("Enter direction, stop, speed (1, 2, 3, 4, s, speed): ", end = "")
     c = input()
     if c == 's':  # Start/Stop
         disable()
 
     elif c == 'speed':
+        print("Enter speed %: ", end = " ")
         s = int(input())  # percentage speed
+        print("Enter direction (1, 2, 3, 4): ", end=" ")
         move = input()
         s = s / 100.0
         for i in range(100):
