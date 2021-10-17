@@ -14,8 +14,10 @@ pwm = GPIO.PWM(12, 100) #settuping up pin 12 for images hor 100 hz frequency
 
 GPIO.setup(M1, GPIO.OUT)
 GPIO.setup(M2, GPIO.OUT)
-GPIO.setup(M3, GPIO.IN)
-GPIO.setup(M4, GPIO.IN)
+GPIO.setup(M3, GPIO.OUT)
+GPIO.setup(M4, GPIO.OUT)
+GPIO.setup(E1,GPIO.OUT)
+GPIO.setup(E2, GPIO.OUT)
 
 #function for both enabling and disbling
 def enable(p):
