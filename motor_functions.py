@@ -35,7 +35,8 @@ def enable(p):
         GPIO.output(E2, GPIO.LOW)
 
 #function for anti clockwise motor rotation (reverse motion) 
-def reverse(t):
+#reverse function for recover phase (just added in case)
+def reverse(t,s):
     enable('E3')
     GPIO.output(M1, GPIO.LOW) 
     GPIO.output(M2, GPIO.HIGH)
@@ -45,7 +46,7 @@ def reverse(t):
     #speed()
 
 #function for clockwise motor rotation (straight motion) 
-def forward(t):
+def forward(t,s):
     enable('E3')
     GPIO.output(M2, GPIO.LOW) 
     GPIO.output(M1, GPIO.HIGH)
