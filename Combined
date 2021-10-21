@@ -1,0 +1,76 @@
+import RPi.GPIO as GPIO
+from time import sleep
+import board
+
+def forward():
+    GPIO.output(Motor1A , 1)
+    GPIO.output(Motor1B , 0)
+    GPIO.output(Motor2A , 1)
+    GPIO.output(Motor2B , 0)
+
+def backward():
+    GPIO.output(Motor1A , 0)
+    GPIO.output(Motor1B , 1)
+    GPIO.output(Motor2A , 0)
+    GPIO.output(Motor2B , 1)
+
+def left():
+    GPIO.output(Motor1A , 0)
+    GPIO.output(Motor1B , 1)
+    GPIO.output(Motor2A , 1)
+    GPIO.output(Motor2B , 1)
+
+def right()):
+    GPIO.output(Motor1A , 1)
+    GPIO.output(Motor1B , 0)
+    GPIO.output(Motor2A , 0)
+    GPIO.output(Motor2B , 0)
+
+def stop():
+    GPIO.output(Motor1A , 0)
+    GPIO.output(Motor1B , 0)
+    GPIO.output(Motor2A , 0)
+    GPIO.output(Motor2B , 0)
+
+def set_speed(x):
+    GPIO.output(17, True)
+    GPIO.output(27, False)
+    GPIO.output(23, True)
+    GPIO.output(24, False)
+    p.ChangeDutyCycle(x)
+    GPIO.output(22, True)
+    GPIO.output(25, True)
+
+# Pins for Motor Driver Inputs
+Motor1A = 17  #11
+Motor1B = 27  #13
+Motor1E = 22    #enable 15
+Motor2A = 23  #16
+Motor2B = 24  #18
+Motor2E = 25    #enable 22
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(Motor1A,GPIO.OUT)  
+GPIO.setup(Motor1B,GPIO.OUT)
+GPIO.setup(Motor1E,GPIO.OUT)
+GPIO.setup(Motor2A,GPIO.OUT)  
+GPIO.setup(Motor2B,GPIO.OUT)
+GPIO.setup(Motor2E,GPIO.OUT)
+GPIO.setup(14, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.output(Motor1E , 1)
+GPIO.output(Motor2E , 1)
+while True:            
+    input_state, speed = input().split(" ")
+    speed = int(speed)
+    set_speed(speed)
+    if input_state == 'w':
+               forward()
+    if input_state == 's':
+               backward()
+    if input_state == 'a':
+               left()
+    if input_state == 'd':
+               right()
+    if input_state == 'x':
+               stop()
+    GPIO.cleanup()
